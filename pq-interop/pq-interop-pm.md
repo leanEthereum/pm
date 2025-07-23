@@ -8,7 +8,7 @@ The PQ Interop PM doc serves as a high-level table of contents for key documents
 
 | Devnet # | Date Activated | Date Deprecated |
 | -- | -- | -- |
-| [pq-devnet-0](pq-devnet-0.md) | TBD | TBD |
+| [pq-devnet-0](https://github.com/leanEthereum/pm/pull/4) | TBD | TBD |
 
 
 ## Breakout Room Meetings
