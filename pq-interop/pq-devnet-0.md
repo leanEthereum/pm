@@ -64,7 +64,6 @@ participants_matrix:
 network_params:
   max_validators: 1000  # Initial keys, scale to 10k+
   slot_time_seconds: [TBD - 4 or 12]
-  preset: lean  # Minimal lean consensus preset
 
 additional_services:
   - metrics_dashboard  # Shared Prometheus/Grafana
