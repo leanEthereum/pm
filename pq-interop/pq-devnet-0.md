@@ -106,7 +106,8 @@ metrics_params:
 #### Success Criteria Validation
   * Network runs for 300+ slots * num_clients without crashing.
   * Full block pipeline <6s (Ream) or on-time with 4s slots (Zeam).
-  * ≥98% attestation correctness or justified/finalized blocks.
+  * `num_attestations_received / num_validators  >= 0.098` for every slot (i.e. 98% attestation arrival)
+  * `num_valid_signatures == num_attestations_received` for every slot (i.e. 100% attestation correctness)
 
 ## Client Interop Readiness
 
