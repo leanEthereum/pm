@@ -12,7 +12,7 @@
     - Chain length: 8
     - Max lifetime: 2^32
     - Activation time: 2^18
-- **Slot Duration:** 4s (Zeam) vs. 12s (Ream) – agree on one? 
+- **Slot Duration:** 4 seconds
 - **Networking Transport:** QUIC (Ream) vs. TCP first then QUIC (discussion in meeting)? 
 - **Validator Count:** Start with 1,000 keys (meeting consensus) and scale? 
 - **Consensus Mechanism:** Include minimal 3SF or no global consensus? 
