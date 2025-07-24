@@ -87,7 +87,6 @@ metrics_params:
 #### PQ Signature Viability
   * Key generation and signing/verification timings - kurtosis - generate keys for 1,000 validators and measure sub-second targets.
   * Adversarial testing: Inject bad signatures via custom actors; verify rejection.
-  * Aggregation prep: Optional local aggregation without network publish; measure times.
   * EIP-7870 compliance: Monitor CPU/memory/bandwidth during runs.
 
 #### Multi-Client Interop
