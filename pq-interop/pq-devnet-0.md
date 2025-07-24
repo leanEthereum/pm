@@ -17,7 +17,17 @@
 - **Gossip:** Gossipsub v1.2
 - **Validator Count:** Start with 1,000 keys (meeting consensus) and scale? 
 - **Consensus Mechanism:** Include minimal 3SF or no global consensus? 
-- **Infrastructure Setup:** Who handles (e.g., Grafana, Prometheus, Kurtosis-like for interop, Genesis Generator tool )? 
+- **Infrastructure Setup:** Should we engage ethPandaOps to:
+    - Set up and host a shared Grafana and Prometheus instance for this effort?
+    - Fork Kurtosis to support leanEthereum devnets (and patch in Genesis Generator)?
+    - Use ethPandaOps Docker image builder and tracker to build/publish CL images?
+
+## Interop Objectives, by Devnet
+| Devnet-# | Objective(s) | Aspirational Ship Date |
+| --------- | ------------ | ----------------------- |
+| **`pq-interop-0`** |  - Signature chaining<br>-Minimal fork choice | End of August |
+| **`pq-interop-1`** | - PQ-Signatures | Mid-October |
+| **`pq-interop-2`** | - Single Subnet Aggregation | Mid-November |
 
 
 ## Sub-Spec List for PQ Devnet-0
@@ -90,13 +100,11 @@ metrics_params:
   * EIP-7870 compliance: Monitor CPU/memory/bandwidth during runs.
 
 #### Multi-Client Interop
-  * Sync testing: Start nodes at different points; use block-by-root to catch up.
+  * Block-by-root: Use for recovery to catch-up to chain head when nodes break; include chianing to pull parent chains for latest gossip blocks.
   * Attestation correctness: Assertoor-like test for ≥98% (Zeam) or local tally (Ream).
-  * Fork choice: Test with mini 3SF or no consensus; verify chain views align.
-  * Networking: Gossip propagation delays <1s; QUIC/TCP comparison.
 
 #### Resource Requirements
-  * Run with 1,000 validators; scale to 10,000; measure EIP-7870 limits.
+  * Run with 1,000 validators (devnet-0); scale by 10x validators for each iteration to 10,000; measure EIP-7870 limits.
   * Hardware metrics: CPU load, memory, throughput every second.
   * Bonus: Inject adversaries (signature collisions, censoring); monitor resilience.
 
