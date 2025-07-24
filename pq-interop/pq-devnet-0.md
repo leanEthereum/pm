@@ -36,7 +36,7 @@
 
 ### Test Releases
 
-**Consensus Specs:** link to consensus spec release
+**Consensus Specs:** link to consensus spec release (Felipe from STEEL will set this up the week of July 28)
 **Execution Spec Tests:** Not applicable
 
 ### Spec Versions Required & Open PRs
@@ -109,7 +109,7 @@ metrics_params:
   * Bonus: Inject adversaries (signature collisions, censoring); monitor resilience.
 
 #### Success Criteria Validation
-  * Network runs for 300+ slots * num_clients without crashing.
+  * Network runs for at least 300 slots * num_clients without crashing for local testing; for cluster devnet, aim for longer durations (e.g., 10 days), subject to test infrastructure capabilities (Extended runs will be beneficial for incorporating features like 3SF in subsequent devnet iterations).
   * Full block pipeline <6s (Ream) or on-time with 4s slots (Zeam).
   * `num_attestations_received / num_validators  >= 0.098` for every slot (i.e. 98% attestation arrival)
   * `num_valid_signatures == num_attestations_received` for every slot (i.e. 100% attestation correctness)
