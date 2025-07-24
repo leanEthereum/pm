@@ -14,6 +14,7 @@
     - Activation time: 2^18
 - **Slot Duration:** 4 seconds
 - **Networking Transport:** QUIC (Ream) vs. TCP first then QUIC (discussion in meeting)? 
+- **Gossip:** Gossipsub v1.2
 - **Validator Count:** Start with 1,000 keys (meeting consensus) and scale? 
 - **Consensus Mechanism:** Include minimal 3SF or no global consensus? 
 - **Infrastructure Setup:** Who handles (e.g., Grafana, Prometheus, Kurtosis-like for interop, Genesis Generator tool )? 
