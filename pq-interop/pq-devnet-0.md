@@ -27,7 +27,7 @@
 ### Test Releases
 
 **Consensus Specs:** link to consensus spec release
-**Execution Spec Tests:** link to executuon spec release 
+**Execution Spec Tests:** Not applicable
 
 ### Spec Versions Required & Open PRs
 
