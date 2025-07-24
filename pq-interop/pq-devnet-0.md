@@ -62,7 +62,6 @@ participants_matrix:
       cl_image: [TBD]:pq-devnet-0
 
 network_params:
-  pq_fork_epoch: 1  # Activate PQ features at epoch 1
   max_validators: 1000  # Initial keys, scale to 10k+
   slot_time_seconds: [TBD - 4 or 12]
   preset: lean  # Minimal lean consensus preset
