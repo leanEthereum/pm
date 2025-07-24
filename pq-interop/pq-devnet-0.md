@@ -7,7 +7,11 @@
 
 ### Active Discussions
 
-- **Sig Parameters:** Consensus on signature parameters (64 hash chains, chain length 8, max lifetime 2^18)? 
+- **Sig Parameters:**
+    - Hash chains: 64
+    - Chain length: 8
+    - Max lifetime: 2^32
+    - Activation time: 2^18
 - **Slot Duration:** 4s (Zeam) vs. 12s (Ream) – agree on one? 
 - **Networking Transport:** QUIC (Ream) vs. TCP first then QUIC (discussion in meeting)? 
 - **Validator Count:** Start with 1,000 keys (meeting consensus) and scale? 
