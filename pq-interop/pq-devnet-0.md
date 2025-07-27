@@ -16,7 +16,7 @@
 - **Networking Transport:** QUIC
 - **Gossip:** Gossipsub v1.2
 - **Validator Count:** Start with 512 keys (meeting consensus) and scale up to 1024 validators
-- **Consensus Mechanism:** Include minimal 3SF or no global consensus? 
+- **Consensus Mechanism:** Minimal fork choice rule (to be spec'ed)
 - **Infrastructure Setup:** Should we engage ethPandaOps to:
     - Set up and host a shared Grafana and Prometheus instance for this effort?
     - Fork Kurtosis to support leanEthereum devnets (and patch in Genesis Generator)?
