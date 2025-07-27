@@ -27,7 +27,7 @@
 | --------- | ------------ | ----------------------- |
 | **`pq-devnet-0`** |  - Signature chaining<br>-Minimal fork choice | End of August |
 | **`pq-devnet-1`** | - PQ-Signatures | Mid-October |
-| **`pq-interop-2`** | - Single Subnet Aggregation | Mid-November |
+| **`pq-devnet-2`** | - Single Subnet Aggregation | TBD |
 
 
 ## Sub-Spec List for PQ Devnet-0
