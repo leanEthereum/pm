@@ -101,7 +101,7 @@ metrics_params:
 
 #### Multi-Client Interop
   * Block-by-root: Use for recovery to catch-up to chain head when nodes break; include chianing to pull parent chains for latest gossip blocks.
-  * Attestation correctness: Assertoor-like test for ≥98% (Zeam) or local tally (Ream).
+  * Attestation correctness: ≥98%
 
 #### Resource Requirements
   * Run with 1,000 validators (devnet-0); scale by 10x validators for each iteration to 10,000; measure EIP-7870 limits.
