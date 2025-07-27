@@ -13,7 +13,7 @@
     - Max lifetime: 2^32
     - Activation time: 2^18
 - **Slot Duration:** 4 seconds
-- **Networking Transport:** QUIC (Ream) vs. TCP first then QUIC (discussion in meeting)? 
+- **Networking Transport:** QUIC
 - **Gossip:** Gossipsub v1.2
 - **Validator Count:** Start with 1,000 keys (meeting consensus) and scale? 
 - **Consensus Mechanism:** Include minimal 3SF or no global consensus? 
