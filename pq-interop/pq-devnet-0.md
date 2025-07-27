@@ -111,7 +111,6 @@ metrics_params:
 #### Success Criteria Validation
   * Network runs for at least 300 slots * num_clients without crashing for local testing; for cluster devnet, aim for longer durations (e.g., 10 days), subject to test infrastructure capabilities (Extended runs will be beneficial for incorporating features like 3SF in subsequent devnet iterations).
   * Full block pipeline in <4 seconds
-  * `num_attestations_received / num_validators  >= 0.098` for every slot (i.e. 98% attestation arrival)
   * `num_valid_signatures == num_attestations_received` for every slot (i.e. 100% attestation correctness)
 
 ## Client Interop Readiness
