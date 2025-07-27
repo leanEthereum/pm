@@ -25,7 +25,7 @@
 ## Interop Objectives, by Devnet
 | Devnet-# | Objective(s) | Aspirational Ship Date |
 | --------- | ------------ | ----------------------- |
-| **`pq-interop-0`** |  - Signature chaining<br>-Minimal fork choice | End of August |
+| **`pq-devnet-0`** |  - Signature chaining<br>-Minimal fork choice | End of August |
 | **`pq-interop-1`** | - PQ-Signatures | Mid-October |
 | **`pq-interop-2`** | - Single Subnet Aggregation | Mid-November |
 
