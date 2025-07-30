@@ -16,7 +16,7 @@ The PQ Interop PM doc serves as a high-level table of contents for key documents
 | # | Date | Agenda | Recording | Notes |
 | -- | --| -- | -- | -- |
 | 04 | August 05, 2025 | Agenda | Recording | Notes |
-| 03 | July 29, 2025 | Agenda | Recording | Notes |
+| 03 | July 30, 2025 | [Agenda](https://github.com/ethereum/pm/issues/1635) | Recording (not recorded, by mistake) | [Notes](meetings/meeting-03.md) |
 | 02 | July 23, 2025 | [Agenda](https://github.com/ethereum/pm/issues/1632) | [Recording](https://youtu.be/yZBlCnXRIEY?si=xaEHakUfO5alg498) | [Notes](meetings/meeting-02.md) |
 | 01 | July 18, 2025 | [Agenda](https://github.com/ethereum/pm/issues/1631) | [Recording](https://www.youtube.com/watch?v=AeCY-vabyuY) | [Notes](meetings/meeting-01.md) |
 
