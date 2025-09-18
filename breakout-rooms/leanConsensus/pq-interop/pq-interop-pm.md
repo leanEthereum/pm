@@ -15,6 +15,10 @@ The PQ Interop PM doc serves as a high-level table of contents for key documents
 
 | # | Date | Agenda | Recording | Notes |
 | -- | --| -- | -- | -- |
+| 10 | September 17, 2025 | [Agenda](https://github.com/ethereum/pm/issues/1728) | [Recording](https://youtu.be/JeeFrwmdX8I?si=UqmpqyarMh9-p3Ev) | [Notes](meetings/meeting-10.md) |
+| 09 | September 10, 2025 | [Agenda](https://github.com/ethereum/pm/issues/1722) | [Recording](https://youtu.be/Oa1cIj8av4M?si=OiMuGb9KJJ4_ITu3) | [Notes](meetings/meeting-09.md) |
+| 08 | September 03, 2025 | [Agenda](https://github.com/ethereum/pm/issues/1712) | [Recording](https://youtu.be/buacaj50n_Y?si=e0XOoAi8ab4mT-Jq) | [Notes](meetings/meeting-08.md) |
+| 07 | August 27, 2025 | [Agenda](https://github.com/ethereum/pm/issues/1698) | [Recording](https://youtu.be/coCfDEnAzSo?si=z4CTv-DyYLRAYiA3) | [Notes](meetings/meeting-07.md) |
 | 06 | August 20, 2025 | [Agenda](https://github.com/ethereum/pm/issues/1690) | [Recording](https://youtu.be/Bmn9lY90UGw) | [Notes](meetings/meeting-06.md) |
 | 05 | August 13, 2025 | [Agenda](https://github.com/ethereum/pm/issues/1675) | [Recording](https://youtu.be/kyBvoDjbEiw?feature=shared) | [Notes](meetings/meeting-05.md) |
 | 04 | August 06, 2025 | [Agenda](https://github.com/ethereum/pm/issues/1663) | [Recording](https://youtu.be/WU6y0sZv_i8) | [Notes](meetings/meeting-04.md) |
