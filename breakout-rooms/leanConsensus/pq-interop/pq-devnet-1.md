@@ -23,12 +23,13 @@
 - Key generation: PQ keys are pre-generated
 - Dynamic validator set: Validator set is pre-determined and fixed at genesis
 
-## Specifications
+## Specification targets
 
-- **leanSpec:** [leanEthereum/leanSpec@050fa4a](https://github.com/leanEthereum/leanSpec/tree/050fa4a18881d54d7dc07601fe59e34eb20b9630)
-  - For specification-related changes, see [all pq-devnet-1 _spec_ PRs](https://github.com/leanEthereum/leanSpec/pulls?q=is%3Apr+is%3Amerged+label%3Aspecs+milestone%3Apq-devnet-1)
-  - For all pq-devnet-1 changes including tests and framework changes, see [all pq-devnet-1 PRs](https://github.com/leanEthereum/leanSpec/pulls?q=is%3Apr+is%3Amerged+label%3Aspecs+milestone%3Apq-devnet-1).
-- **leanMetrics:** [leanEthereum/leanMetrics@e077ac2](https://github.com/leanEthereum/leanMetrics/tree/e077ac2a2190a4946e01737b27eb9a5636e6884e)
+| Specification | Target | Remarks |
+| ------------- | ------ | ------- |
+| leanSpec      | [leanEthereum/leanSpec@050fa4a](https://github.com/leanEthereum/leanSpec/tree/050fa4a18881d54d7dc07601fe59e34eb20b9630) | - For specification-related changes, see [all pq-devnet-1 _spec_ PRs](https://github.com/leanEthereum/leanSpec/pulls?q=is%3Apr+is%3Amerged+label%3Aspecs+milestone%3Apq-devnet-1) <br />- For all changes including tests and framework, see [all pq-devnet-1 PRs](https://github.com/leanEthereum/leanSpec/pulls?q=is%3Apr+is%3Amerged+label%3Aspecs+milestone%3Apq-devnet-1) |
+| leanSig | TBD until ssz PR is merged | |
+| leanMetrics   | [leanEthereum/leanMetrics@e077ac2](https://github.com/leanEthereum/leanMetrics/tree/e077ac2a2190a4946e01737b27eb9a5636e6884e) | |
 
 ## Configurations
 
