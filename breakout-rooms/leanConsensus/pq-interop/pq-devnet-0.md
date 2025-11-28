@@ -1,135 +1,46 @@
-# PQ Devnet-0 Specs
+# pq-devnet-0: High Level Plan
 
+## Objectives
 
-### Devnet Change Log
-- No changes, initial devnet 
+While practically a pre-devnet without PQ signatures yet, this phase established critical foundations for multi-client coordination and our iterative development approach:
 
+1. Establish new leanSpec framework
+2. Establish first client specs
+3. First trial of client interops (and consensus)
+4. Initial metrics setup
 
-### Active Discussions
+### Targets
 
-- **Sig Parameters:**
-    - Hash chains: 64
-    - Chain length: 8
-    - Max lifetime: 2^32
-    - Activation time: 2^18
-- **Slot Duration:** 4 seconds
-- **Networking Transport:** QUIC
-- **Gossip:** Gossipsub v1.2
-- **Validator Count:** Start with 512 keys (meeting consensus) and scale up to 1024 validators
-- **Consensus Mechanism:** Minimal fork choice rule (to be spec'ed)
-- **Infrastructure Setup:** Should we engage ethPandaOps to:
-    - Set up and host a shared Grafana and Prometheus instance for this effort?
-    - Fork Kurtosis to support leanEthereum devnets (and patch in Genesis Generator)?
-    - Use ethPandaOps Docker image builder and tracker to build/publish CL images?
+- **Slot duration:** 4 seconds
+- **Networking transport:** QUIC
+- **Gossip:** Gossipsub v1.0
+- **Consensus mechanism:** Modified [3SF-mini](https://github.com/ethereum/research/tree/master/3sf-mini)
+- **Infrastructure:** Local machines only
 
-## Interop Objectives, by Devnet
-| Devnet-# | Objective(s) | Aspirational Ship Date |
-| --------- | ------------ | ----------------------- |
-| **`pq-devnet-0`** |  - Signature chaining<br>-Minimal fork choice | End of August |
-| **`pq-devnet-1`** | - PQ-Signatures | Mid-October |
-| **`pq-devnet-2`** | - Single Subnet Aggregation | TBD |
+### Key exclusions
 
+- PQ signatures are not implemented
 
-## Sub-Spec List for PQ Devnet-0
->The list below links to reference papers, specs, and implementations. Versions to be finalized by August 31, 2025.
+## Specification targets
 
+| Specification | Target | Remarks |
+| ------------- | ------ | ------- |
+| leanSpec      | [leanEthereum/leanSpec@4b750f2](https://github.com/leanEthereum/leanSpec/tree/4b750f2748a3718fe3e1e9cdb3c65e3a7ddabff5) | |
 
-### Test Releases
+## Interop toolings
 
-**Consensus Specs:** link to consensus spec release (Felipe from STEEL will set this up the week of July 28)
-**Execution Spec Tests:** Not applicable
+| Tool | Link |
+| ---- | ---- |
+| local-pq-devnet | [ReamLabs/local-pq-devnet@6152686](https://github.com/ReamLabs/local-pq-devnet/tree/6152686d44e1fcd498ad9b079f244832fc58e521) |
+| lean-quickstart | TBC |
 
-### Spec Versions Required & Open PRs
+## Client support status
 
-- List of links to spec PR's **Merged** :heavy_check_mark: 
-- List of links to spec PR's **Open** :exclamation:
+| Client | Implementation | Interop | Code      | Docker |
+| ------ | -------------- | ------- | --------- | ------ |
+| Ream   | ✅ | ✅ | [ReamLabs/ream@0bceaee](https://github.com/ReamLabs/ream/commit/0bceaee39b85482e650b48645c314c4a5dbbbcfd) | [ethpandaops/ream:master-0bceaee](https://hub.docker.com/layers/ethpandaops/ream/master-0bceaee)
+| Zeam   | ✅ | ✅ | | |
+| Qlean  | ✅ | ✅ | | |
 
-
-### Client Support Status
->develop list of testing scenarios (link here)
-
-| Testing Scenario | Ream | Zeam | [TBD: Third Client?] |
-|------------------|------|------|----------------------|
-| 1a | :question: | :question: | :question: |
-| 2a | :question: | :question: | :question: |
-| 3a | :question: | :question: | :question: |
-| 4a | :question: | :question: | :question: |
-| 5a | :question: | :question: | :question: |
-| 6a | :question: | :question: | :question: |
-
-## Kurtosis Interop Config (Pre-Devnet Testing)
-
->yaml below is AI slop
-
-```yaml
-participants_matrix:
-  cl:
-    - cl_type: ream
-      cl_image: reamlabs/ream:pq-devnet-0
-    - cl_type: zeam
-      cl_image: zeam/zeam:pq-devnet-0
-    - cl_type: [TBD - third client, e.g., lighthouse-pq]
-      cl_image: [TBD]:pq-devnet-0
-
-network_params:
-  max_validators: 1000  # Initial keys, scale to 10k+
-  slot_time_seconds: [TBD - 4 or 12]
-
-additional_services:
-  - metrics_dashboard  # Shared Prometheus/Grafana
-  - genesis_generator
-
-metrics_params:
-  image: [TBD - ethpandaops/metrics:master]
-  dashboards:
-    - scenario: pq_signing
-      config:
-        throughput: 100  # Signatures per slot
-    - scenario: propagation
-      config:
-        throughput: 50  # Blocks/attestations
-```
-
-### Testing:
-
->testing ideas below is AI slop
-
-#### PQ Signature Viability
-  * Key generation and signing/verification timings - kurtosis - generate keys for 1,000 validators and measure sub-second targets.
-  * Adversarial testing: Inject bad signatures via custom actors; verify rejection.
-  * EIP-7870 compliance: Monitor CPU/memory/bandwidth during runs.
-
-#### Multi-Client Interop
-  * Block-by-root: Use for recovery to catch-up to chain head when nodes break; include chianing to pull parent chains for latest gossip blocks.
-  * Attestation correctness: ≥98%
-
-#### Resource Requirements
-  * Run with 1,000 validators (devnet-0); scale by 10x validators for each iteration to 10,000; measure EIP-7870 limits.
-  * Hardware metrics: CPU load, memory, throughput every second.
-  * Bonus: Inject adversaries (signature collisions, censoring); monitor resilience.
-
-#### Success Criteria Validation
-  * Network runs for at least 300 slots * num_clients without crashing for local testing; for cluster devnet, aim for longer durations (e.g., 10 days), subject to test infrastructure capabilities (Extended runs will be beneficial for incorporating features like 3SF in subsequent devnet iterations).
-  * Full block pipeline in <4 seconds
-
-## Client Interop Readiness
-
->develop list of testing scenarios (link here)
-
-| Scenario | Ream | Zeam | TBD: Third Client |
-| -------- | ---- | ---- | ------------------- |
-| 1a (Basic Signing) | :question: | :question: | :question: |
-| 1b (Attestation Prop) | :question: | :question: | :question: |
-| 2a (Sync from Finalized) | :question: | :question: | :question: |
-| 2b (Block-by-Root) | :question: | :question: | :question: |
-| 3a (Justification) | :question: | :question: | :question: |
-| 3b (Adversarial Sig) | :question: | :question: | :question: |
-| 4 (Scale to 10k Vals) | :question: | :question: | :question: |
-
-## Reference Spec for Previous Devnet: 
-None. This is the initial devnet
-
-### Open Future Questions:
-  - Question 1
-  - Question 2
-  - Question 3
+## Summary
+- [PQDevnet0: Laying the groundwork for post-quantum interop with 3SF-mini](https://hackmd.io/@reamlabs/ryYUl04Rle) by ReamLabs
