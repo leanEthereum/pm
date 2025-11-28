@@ -1,15 +1,18 @@
 # PQ Interop
 
 ## Overview
-The PQ Interop PM doc serves as a high-level table of contents for key documents related to the development of Post-Quantum (PQ) Devnet, an iterative testing environment aimed at validating hash-based PQ signatures within Ethereum's lean consensus framework while adhering to EIP-7870 resource constraints. This collaborative effort between client teams, cryptographers, and various other researchers focuses on proving signature viability, achieving multi-client interoperability, and establishing performance baselines for block propagation and attestation correctness. By fostering rapid feedback between researchers and developers, the devnet accelerates PQ adoption against quantum threats, with initial launches targeting basic features before scaling to aggregation and advanced consensus mechanisms.
+The PQ Interop PM doc serves as a high-level table of contents for key documents related to the development of Post-Quantum (PQ) devnet, an iterative testing environment aimed at validating hash-based PQ signatures within Ethereum's lean consensus framework while adhering to EIP-7870 resource constraints.
+
+This collaborative effort between client teams, cryptographers, and various other researchers focuses on proving signature viability, achieving multi-client interoperability, and establishing performance baselines for block propagation and attestation correctness.
+
+By fostering rapid feedback between researchers and developers, the devnet accelerates PQ adoption against quantum threats, with initial launches targeting basic features before scaling to aggregation and advanced consensus mechanisms.
 
 
-## PQ Interop Devnet Specs
+## PQ Interop Devnet Plans
 
-| Devnet # | Date Activated | Date Deprecated |
-| -- | -- | -- |
-| [pq-devnet-0](https://github.com/leanEthereum/pm/pull/4) | TBD | TBD |
-
+| devnet #                        | Main objectives   | Status      | Date completed  |
+| ------------------------------- | ----------------- | ----------- | --------------- |
+| [pq-devnet-0](./pq-devnet-0.md) | - Minimal consensus<br /> - No PQ signatures | Completed   | October 6, 2025 |
 
 ## Breakout Room Meetings
 
