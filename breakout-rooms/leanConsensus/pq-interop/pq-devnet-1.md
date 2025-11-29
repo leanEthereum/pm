@@ -28,7 +28,7 @@
 | Specification | Target | Remarks |
 | ------------- | ------ | ------- |
 | leanSpec      | [leanEthereum/leanSpec@050fa4a](https://github.com/leanEthereum/leanSpec/tree/050fa4a18881d54d7dc07601fe59e34eb20b9630) | - For specification-related changes, see [all pq-devnet-1 _spec_ PRs](https://github.com/leanEthereum/leanSpec/pulls?q=is%3Apr+is%3Amerged+label%3Aspecs+milestone%3Apq-devnet-1) <br />- For all changes including tests and framework, see [all pq-devnet-1 PRs](https://github.com/leanEthereum/leanSpec/pulls?q=is%3Apr+is%3Amerged+label%3Aspecs+milestone%3Apq-devnet-1) |
-| leanSig | TBD until ssz PR is merged | |
+| leanSig | [leanEthereum/leanSig@f10dcbe](https://github.com/leanEthereum/leanSig/tree/f10dcbefac2502d356d93f686e8b4ecd8dc8840a) | |
 | leanMetrics   | [leanEthereum/leanMetrics@e077ac2](https://github.com/leanEthereum/leanMetrics/tree/e077ac2a2190a4946e01737b27eb9a5636e6884e) | |
 
 ## Configurations
