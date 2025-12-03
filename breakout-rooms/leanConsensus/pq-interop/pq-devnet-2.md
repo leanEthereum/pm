@@ -43,13 +43,17 @@
 
 ## Benchmarks
 
-- Setup
-  - Hardware specs: TBD
-- Configurations
+- Hardware specs
+  - CPU: 4 cores / 8 threads with ~1000 ST / 3000 MT CPU rating
+  - Memory: 32 GB
+  - Bandwidth: 50 Mbps down / 15 Mbps up
+  - Assumption: Based on [EIP-7870](https://eips.ethereum.org/EIPS/eip-7870) full node specs
+- Configurations (TBC)
   - 5 validators, 1 machine (5 clients x 1) - interop check
   - 100 validators, 1 machine (5 clients x 20 validators/client)
   - 200 validators, 2 machines (5 clients x 20 validators/client x 2 machines)
   - 400 validators, 4 machines (5 clients x 20 validators/client x 4 machines)
+  - Assumption: A machine can run up to 100 validators in stable condition
 - Results
   - [leanMetrics](https://github.com/leanEthereum/leanMetrics) collected and analyzed. Links to results to be added here once completed.
 
