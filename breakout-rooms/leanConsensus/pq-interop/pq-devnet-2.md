@@ -19,6 +19,7 @@
 | ------------- | ------ | ------- |
 | leanSpec      | [leanEthereum/leanSpec@main](https://github.com/leanEthereum/leanSpec/tree/main/) (TBC) | - For specification-related changes, see [all pq-devnet-2 _spec_ PRs](https://github.com/leanEthereum/leanSpec/pulls?q=is%3Apr+is%3Amerged+label%3Aspecs+milestone%3Apq-devnet-2) <br />- For all changes including tests and framework, see [all pq-devnet-2 PRs](https://github.com/leanEthereum/leanSpec/pulls?q=is%3Apr+is%3Amerged+label%3Aspecs+milestone%3Apq-devnet-2) |
 | leanSig | [leanEthereum/leanSig@adad238](https://github.com/leanEthereum/leanSig/tree/adad23877977b4e992df10d39abc03594a8d63a6) (TBC) | |
+| leanMultisig | [leanEthereum/leanMultisig@main](https://github.com/leanEthereum/leanMultisig) (TBC) | 2025-10-11: leanMultisig is currently incompatible with leanSig. Researchers are working to enable full compatibility for devnet 2. |
 | leanMetrics   | [leanEthereum/leanMetrics@main](https://github.com/leanEthereum/leanMetrics/) (TBC) | |
 
 ## Configurations
