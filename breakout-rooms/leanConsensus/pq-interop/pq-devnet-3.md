@@ -32,7 +32,7 @@
         - Proposer puts aggregated signatures across subnets into a block (basic concatenation, no recursion)
     - **Aggregation committee size:**
         - **Initial:** 1 aggregation committee with minimum validators, to verify interop
-        - **North star:** 1 aggregation committee with 128 validators each
+        - **North star:** 1 aggregation committee with 128 validators
     - **Validator count:**
         - **Initial:** 5 validators (1 per client implementation)
         - **North star:** 128 validators (to accommodate a full aggregation committee)
