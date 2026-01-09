@@ -29,7 +29,7 @@
     - **Proposer role:**
         - Proposer listens to `aggregated_attestation` gossipsub topic
         - Proposer MAY listen to `attestation_{subnet_id}` topics and aggregate gossiped signatures if the received aggregated signatures don't cover all desired votes
-        - Proposer collects aggregations across subnets into a block (basic concatenation, no recursion)
+        - Proposer puts aggregated signatures across subnets into a block (basic concatenation, no recursion)
     - **Aggregation committee size:**
         - **Initial:** 1 aggregation committee with minimum validators, to verify interop
         - **North star:** 1 aggregation committee with 128 validators each
