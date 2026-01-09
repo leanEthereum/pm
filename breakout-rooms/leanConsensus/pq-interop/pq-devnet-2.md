@@ -11,6 +11,7 @@
 - **Consensus mechanism:** Modified [3SF-mini](https://github.com/ethereum/research/tree/master/3sf-mini)
 - **Validator count:** 400 validators (assuming [current benchmark](https://github.com/leanEthereum/leanMultisig?tab=readme-ov-file#xmss-aggregation) of almost 400 XMSS/s)
 - **Signature aggregation:** [leanMultisig](https://github.com/leanEthereum/leanMultisig)
+- **Sync:** Out-of-sync clients are able to sync to chain head by requesting BlocksByRoot from connected peers
 - **Completion target:** 2026-01-28
 
 ## Specification targets
