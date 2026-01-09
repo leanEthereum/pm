@@ -30,12 +30,12 @@
         - Proposer listens to `aggregated_attestation` gossipsub topic
         - Proposer MAY listen to `attestation_{subnet_id}` topics and aggregate gossiped signatures if the received aggregated signatures don't cover all desired votes
         - Proposer puts aggregated signatures across subnets into a block (basic concatenation, no recursion)
-    - **Aggregation committee size:**
-        - **Initial:** 1 aggregation committee with minimum validators, to verify interop
-        - **North star:** 1 aggregation committee with 128 validators
+    - **Aggregation subnet size:**
+        - **Initial:** 1 aggregation subnet with minimum validators, to verify interop
+        - **North star:** 1 aggregation subnet with 128 validators
     - **Validator count:**
         - **Initial:** 5 validators (1 per client implementation)
-        - **North star:** 128 validators (to accommodate a full aggregation committee)
+        - **North star:** 128 validators (to accommodate a full aggregation subnet)
 
 ## External configurations & assumptions
 
@@ -48,7 +48,7 @@
 
 ## Notable exclusions
 
-- Multiple aggregation committees - planned for the next devnet to derisk complexity
+- Multiple aggregation subnets & committees - planned for the next devnet to derisk complexity
 - Recursive aggregation - deferred to future devnets
 
 ## Completion target
