@@ -30,6 +30,15 @@
         - Proposer listens to `aggregated_attestation` gossipsub topic
         - Proposer MAY listen to `attestation_{subnet_id}` topics and aggregate gossiped signatures if the received aggregated signatures don't cover all desired votes
         - Proposer puts aggregated signatures across subnets into a block (basic concatenation, no recursion)
+    - **Slot intervals:**
+        - Intervals
+            | Interval | Proposer | Attester | Aggregator |
+            |----------|----------|----------|------------|
+            | 0 | - Publishes a block | - Immediately accept new attestations from published block |  |
+            | 1 |  | - Create and gossip attestations | - Propagate valid attestation to attestations topic corresponding to the committee of aggregator |
+            | 2 | - Compute safe target with 2/3+ majority | - Compute safe target with 2/3+ majority | - If >X% of attestations from the committee is collected, compute & propagate an aggregation |
+            | 3 | - Accept accumulated attestations (new → known) <br />- Update head based on new attestation weights | - Accept accumulated attestations (new → known) <br />- Update head based on new attestation weights | - If >X% of attestations was not collected and no other aggregation proving >X% of attestations from the same committee was observed, compute & propagate an aggregation from existing attestations |
+        - New attestations are collected throughout all intervals by all roles
     - **Aggregation subnet size:**
         - **Initial:** 1 aggregation subnet with minimum validators, to verify interop
         - **North star:** 1 aggregation subnet with 128 validators
