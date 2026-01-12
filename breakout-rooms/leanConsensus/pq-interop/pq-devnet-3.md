@@ -15,12 +15,14 @@
     - **Signature aggregation:** [leanMultisig](https://github.com/leanEthereum/leanMultisig)
 - **Changes**
     - **validator-config.yaml:**
-        - New field: `validator.attestation_subnet_id` - The subnet that the validator propagates the attestation to, assigned to all validators
-        - New field: `validator.aggregator_subnet_id` - The subnet that the validator will perform aggregator duty, assigned to a small subset of validators
+        - New field: `validator.attestation_subnet_id` - The subnet that the validator propagates attestations to. Each validator must belong to one attestation subnet.
+        - New field: `validator.is_aggregator` - A boolean flag whether the validator has the aggregator duty in its attestation subnet. Each attestation subnet must have 1 validator assigned as the aggregator.
         - Note that with above, the aggregator re-uses the same ENR as the validator (same instance)
     - **Networking:**
+        - New ENR metadata field: `is_aggregator`, follows `validator.is_aggregator` value
         - New gossipsub topic: `attestation_{subnet_id}` for propagating `SignedAttestation`
         - New gossipsub topic: `aggregated_attestation` for propagating `SignedAggregatedAttestation`
+        - Note: attesters should still propate its attestations to the global `attestation` topic for safe target computation
     - **Attester role:**
         - Attesters propagate their individual attestations to `attestation_{subnet_id}` gossipsub topic (in addition to existing `attestation`)
     - **Aggregator role (new):**
