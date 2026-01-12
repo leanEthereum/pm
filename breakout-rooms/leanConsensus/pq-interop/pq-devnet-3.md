@@ -31,8 +31,8 @@
         - Aggregators do not perform recursive aggregation in this devnet
     - **Proposer role:**
         - Proposer listens to `aggregated_attestation` gossipsub topic
-        - Proposer MAY listen to `attestation_{subnet_id}` topics and aggregate gossiped signatures if the received aggregated signatures don't cover all desired votes
         - Proposer puts aggregated signatures across subnets into a block (basic concatenation, no recursion)
+        - Proposer MAY additionally aggregate any attestation that is not yet aggregated (and not equivocating) to a block
     - **Slot intervals:**
         - Intervals
             | Interval | Proposer | Attester | Aggregator |
