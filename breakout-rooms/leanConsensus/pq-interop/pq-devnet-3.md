@@ -24,8 +24,9 @@
     - **Attester role:**
         - Attesters propagate their individual attestations to `attestation_{subnet_id}` gossipsub topic (in addition to existing `attestation`)
     - **Aggregator role (new):**
-        - Aggregators collect attestations from `attestation_{subnet_id}` gossipsub topic and aggregates them into aggregated signatures
+        - Aggregators collect individual attestations from `attestation_{subnet_id}` gossipsub topic and aggregates them into aggregated signatures
         - Aggregators propagate their aggregated signatures to `aggregated_attestation` gossipsub topic
+        - Aggregators do not perform recursive aggregation in this devnet
     - **Proposer role:**
         - Proposer listens to `aggregated_attestation` gossipsub topic
         - Proposer MAY listen to `attestation_{subnet_id}` topics and aggregate gossiped signatures if the received aggregated signatures don't cover all desired votes
