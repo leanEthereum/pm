@@ -25,6 +25,7 @@
         - Note: attesters should still propate its attestations to the global `attestation` topic for safe target computation
     - **Attester role:**
         - Attesters propagate their individual attestations to `attestation_{subnet_id}` gossipsub topic (in addition to existing `attestation`)
+        - Attesters do not need to subscribe, i.e. listen to other attestations, in its subnet
     - **Aggregator role (new):**
         - Aggregators collect individual attestations from `attestation_{subnet_id}` gossipsub topic and aggregates them into aggregated signatures
         - Aggregators propagate their aggregated signatures to `aggregated_attestation` gossipsub topic
