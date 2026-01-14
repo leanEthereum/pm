@@ -31,9 +31,9 @@
         - Every validator now belongs to one of the attestation subnets. `subnet_id` is defined by `validator_id % subnets_count` formula to ease debugging. In future devnets it will be replaced by the random assignment.
         - New gossipsub topic: `attestation_{subnet_id}` for propagating `SignedAttestation`
         - New gossipsub topic: `aggregated_attestation` for propagating `SignedAggregatedAttestation`
-        - Note: attesters should still propagate its attestations to the global `attestation` topic for safe target computation
+        - Note: attesters still publish and subscribe to the global `attestation` topic for safe target computation
     - **Attester role:**
-        - Attesters propagate their individual attestations to new `attestation_{subnet_id}` gossipsub topic (in addition to existing `attestation`)
+        - Attesters propagate their individual attestations to new `attestation_{subnet_id}` gossipsub topic and existing `attestation` topic
         - Attesters do not need to subscribe to `attestation_{subnet_id}` topic if they are not aggregators, i.e. they only publish into the topic. This is to save some bandwidth by not receiving the same attestation both in the subnet and global attestation topics.
     - **Aggregator role (new):**
         - Aggregators collect individual attestations from `attestation_{subnet_id}` gossipsub topic and aggregates them into aggregated signatures
