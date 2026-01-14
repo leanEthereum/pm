@@ -27,6 +27,7 @@
     ```
 
     - **Networking:**
+        - New ENR metadata field: `is_aggregator`, follows previous explanation
         - Every validator now belongs to one of the attestation subnets. `subnet_id` is defined by `validator_id % subnets_count` formula to ease debugging. In future devnets it will be replaced by the random assignment.
         - New gossipsub topic: `attestation_{subnet_id}` for propagating `SignedAttestation`
         - New gossipsub topic: `aggregated_attestation` for propagating `SignedAggregatedAttestation`
