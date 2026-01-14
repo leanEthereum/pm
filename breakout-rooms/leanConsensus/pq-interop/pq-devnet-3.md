@@ -15,7 +15,7 @@
     - **Signature aggregation:** [leanMultisig](https://github.com/leanEthereum/leanMultisig)
 - **Changes**
     - **validator-config.yaml:**
-      - New field: `is_aggregator` - A boolean ENR record whether the validator has the aggregator duty in its attestation subnet. Each attestation subnet must have 1 validator assigned as the aggregator. If field is missing we assume the node is not an aggregator.
+      - New field: `is_aggregator` - A boolean ENR record indicating whether the validator has the aggregator duty in its attestation subnet. Each attestation subnet must have 1 validator assigned as the aggregator. If field is missing we assume the node is not an aggregator.
       - Example new validator config for aggregator:
     ```yaml
     - name: node_0
@@ -31,7 +31,7 @@
         - Every validator now belongs to one of the attestation subnets. `subnet_id` is defined by `validator_id % subnets_count` formula to ease debugging. In future devnets it will be replaced by the random assignment.
         - New gossipsub topic: `attestation_{subnet_id}` for propagating `SignedAttestation`
         - New gossipsub topic: `aggregated_attestation` for propagating `SignedAggregatedAttestation`
-        - Note: attesters should still propate its attestations to the global `attestation` topic for safe target computation
+        - Note: attesters should still propagate its attestations to the global `attestation` topic for safe target computation
     - **Attester role:**
         - Attesters propagate their individual attestations to new `attestation_{subnet_id}` gossipsub topic (in addition to existing `attestation`)
         - Attesters do not need to subscribe to `attestation_{subnet_id}` topic if they are not aggregators, i.e. they only publish into the topic. This is to save some bandwidth by not receiving the same attestation both in the subnet and global attestation topics.
