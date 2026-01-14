@@ -14,6 +14,18 @@
     - **PQ Signature:** [leanSig](https://github.com/leanEthereum/leanSig)
     - **Signature aggregation:** [leanMultisig](https://github.com/leanEthereum/leanMultisig)
 - **Changes**
+    - **validator-config.yaml:**
+      - New field: `is_aggregator` - A boolean ENR record whether the validator has the aggregator duty in its attestation subnet. Each attestation subnet must have 1 validator assigned as the aggregator.
+      - Example new validator config:
+    ```yaml
+    - name: node_0
+        privkey: 0000000000000000010000000000000002000000000000000300000000000000
+        enrFields:
+          ip: 10.0.0.0
+          quic: 10000
+          is_aggregator: true
+    ```
+
     - **Networking:**
         - Every validator now belongs to one of the attestation subnets. `subnet_id` is defined by `validator_id % subnets_count` formula to ease debugging. In future devnets it will be replaced by the random assignment.
         - New ENR metadata field: `is_aggregator` signalling if the node is willing to perform aggregation duties. If field is missing we assume the node is not an aggregator
