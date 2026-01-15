@@ -38,10 +38,10 @@
         - Intervals
             | Interval | Proposer | Attester | Aggregator |
             |----------|----------|----------|------------|
-            | 0 | - Publishes a block | - Immediately accept new attestations from published block |  |
-            | 1 |  | - Create and gossip attestations | - Propagate valid attestation to attestations topic corresponding to the committee of aggregator |
-            | 2 | - Compute safe target with 2/3+ majority | - Compute safe target with 2/3+ majority | - If >X% of attestations from the committee is collected, compute & propagate an aggregation |
-            | 3 | - Accept accumulated attestations (new → known) <br />- Update head based on new attestation weights | - Accept accumulated attestations (new → known) <br />- Update head based on new attestation weights | - If >X% of attestations was not collected and no other aggregation proving >X% of attestations from the same committee was observed, compute & propagate an aggregation from existing attestations |
+            | 0 | - Publish a block | - Immediately accept new attestations from the published block |  |
+            | 1 |  | - Create and propagate attestation to the global attestation topic and attestation subnet | - Collect attestations from attestation subnet |
+            | 2 |  | - Compute safe target with 2/3+ majority | - If >X% of attestations from the subnet are collected, compute and propagate an aggregation |
+            | 3 |  | - Accept accumulated attestations (new → known) <br />- Update head based on new attestation weights | - If no aggregation was produced, compute and propagate an aggregation from collected attestations |
         - New attestations are collected throughout all intervals by all roles
     - **Aggregation subnet size:**
         - **Initial:** 1 aggregation subnet with minimum validators, to verify interop
