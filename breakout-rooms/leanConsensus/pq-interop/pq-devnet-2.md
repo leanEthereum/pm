@@ -20,7 +20,7 @@
 | ------------- | ------ | ------- |
 | leanSpec      | [leanEthereum/leanSpec@c187aab](https://github.com/leanEthereum/leanSpec/tree/c187aab89e0ecc6ce9c1fd9304fd708312ea7106) | |
 | leanSig | [leanEthereum/leanSig@ae12a5f](https://github.com/leanEthereum/leanSig/tree/ae12a5feb25d917c42b6466444ebd56ec115a629) | |
-| leanMultisig | [leanEthereum/leanMultisig@825c1fc](https://github.com/leanEthereum/leanMultisig/tree/825c1fc22bad0bfbdb3a656d209944f38d8733fa) |  |
+| leanMultisig | [leanEthereum/leanMultisig@8f526d6](https://github.com/leanEthereum/leanMultisig/tree/8f526d6144b3beb1b1e6b0ec5b6dbdc6d26e81c9) |  |
 | leanMetrics   | [leanEthereum/leanMetrics@3b32b30](https://github.com/leanEthereum/leanMetrics/tree/3b32b300cca5ed7a7a2b3f142273fae9dbc171bf) | |
 
 ## Configurations
