@@ -13,8 +13,9 @@ By fostering rapid feedback between researchers and developers, the devnet accel
 | devnet #                        | Main objectives   | Status      | Date completed  |
 | ------------------------------- | ----------------- | ----------- | --------------- |
 | [pq-devnet-0](./pq-devnet-0.md) | - Minimal consensus<br /> - No PQ signatures | Completed   | October 6, 2025 |
-| [pq-devnet-1](./pq-devnet-1.md) | - PQ signature signining & verification<br />- Naive aggregation (signature concatenation) | In progress | TBD (estimated: Q4 2025) |
-| [pq-devnet-2](./pq-devnet-2.md) | - PQ signature aggregation<br />- No recursive aggregation | Not started | TBD (estimated: Q1 2026) |
+| [pq-devnet-1](./pq-devnet-1.md) | - PQ signature signining & verification<br />- Naive aggregation (signature concatenation) | Completed | January 20, 2026 |
+| [pq-devnet-2](./pq-devnet-2.md) | - PQ signature aggregation<br />- No recursive aggregation | In progress | TBD (estimated: Q1 2026) |
+| [pq-devnet-3](./pq-devnet-3.md) | - PQ signature aggregation with aggregation committee | Speccing | TBD (estimated: Q1 2026) |
 
 ## Breakout Room Meetings
 
