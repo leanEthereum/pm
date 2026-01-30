@@ -10,7 +10,7 @@
 
 - **Slot duration:** 4 seconds
 - **Consensus mechanism:** Modified [3SF-mini](https://github.com/ethereum/research/tree/master/3sf-mini)
-- **Validator count:** Start with 512 validators and scale up to 1024 validators
+- **Validator count:** 5 validators (1 validator per client)
 - **PQ Signature prameters:**
     - Hash chains: 64
     - Chain length: 8
@@ -45,24 +45,17 @@
 
 | Client | Implementation | Spec tests | Interop | Code      | Docker |
 | ------ | -------------- | ---------- | ------- | --------- | ------ |
-| Ream   | ✅ | ⏳ | ✅ | [ReamLabs/ream@149141b](https://github.com/ReamLabs/ream/commit/149141bf25fd68ab7cd54e82fdc08989d92071d8) | [ethpandaops/ream:master-149141b](https://hub.docker.com/layers/ethpandaops/ream/master-149141b)
-| Zeam   | ✅ | ⏳ | ✅ | |
-| Qlean  | ✅ | ⏳ | ✅ | |
-| Lantern | ⏳ | ⏳ | ⏳ | |
-| Lighthouse | ⏳ | ⏳ | ⏳ | |
+| Ream   | ✅ | ⏳ | ✅ | [ReamLabs/ream@e68ba0d](https://github.com/ReamLabs/ream/tree/e68ba0d) | [ethpandaops/ream:master-149141b](https://hub.docker.com/r/ethpandaops/ream/tags?name=e68ba0d) |
+| Zeam   | ✅ | ⏳ | ✅ | [blockblaz/zeam@devnet1](https://github.com/blockblaz/zeam/tree/devnet1) | [blockblaz/zeam:devnet1](https://hub.docker.com/r/blockblaz/zeam/tags?name=devnet1) |
+| Qlean  | ✅ | ⏳ | ✅ | [qdrvm/qlean-mini@c8dc1ec](https://github.com/qdrvm/qlean-mini/tree/c8dc1ec) | [qdrvm/qlean-mini:c8dc1ec](https://hub.docker.com/r/qdrvm/qlean-mini/tags?name=c8dc1ec) |
+| Lantern | ✅ | ⏳ | ✅ | [piertwo/lantern@devnet1](https://github.com/Pier-Two/lantern/tree/devnet-1) | [piertwo/lantern:v0.0.1](https://hub.docker.com/r/piertwo/lantern/tags?name=v0.0.1) |
+| Grandine | ✅ | ⏳ | ✅ | [grandinetech/lean](https://github.com/grandinetech/lean) | [sifrai/lean:devnet-1](https://hub.docker.com/r/sifrai/lean/tags?name=devnet-1) |
 
-## Benchmarks
+## Infrastructure
 
-- Setup
-  - Hardware specs: TBD
-- Configurations
-  - 3 validators, 1 machine
-  - 64 validators, 1 machine
-  - 512 validators, 10 machines
-  - 1024 validators, 10 machines
-- Results
-  - [leanMetrics](https://github.com/leanEthereum/leanMetrics) collected and analyzed. Links to results to be added here once completed.
+- Hardware specs: 8-core/16GB/150GB
+- Configurations: 5 machines, 1 machine per client
 
 ## Summary and learnings
 
-- To be added once devnet is complete
+- https://hackmd.io/@katya-blockchain-dev/lean-devnet-1-retrospective
