@@ -18,7 +18,7 @@
 
 | Specification | Target | Remarks |
 | ------------- | ------ | ------- |
-| leanSpec      | [leanEthereum/leanSpec@4edcf7b](https://github.com/leanEthereum/leanSpec/tree/4edcf7bc9271e6a70ded8aff17710d68beac4266) | |
+| leanSpec      | [leanEthereum/leanSpec@4edcf7b](https://github.com/leanEthereum/leanSpec/tree/4edcf7bc9271e6a70ded8aff17710d68beac4266) | - For specification-related changes, see [all pq-devnet-2_spec_ PRs](https://github.com/leanEthereum/leanSpec/pulls?q=is%3Apr+is%3Amerged+label%3Aspecs+milestone%3Apq-devnet-2) <br />- For all changes including tests and framework, see [all pq-devnet-2 PRs](https://github.com/leanEthereum/leanSpec/pulls?q=is%3Apr+is%3Amerged+label%3Aspecs+milestone%3Apq-devnet-2) |
 | leanSig | [leanEthereum/leanSig@73bedc2](https://github.com/leanEthereum/leanSig/tree/73bedc26ed961b110df7ac2e234dc11361a4bf25) | |
 | leanMultisig | [leanEthereum/leanMultisig@e447413](https://github.com/leanEthereum/leanMultisig/tree/e4474138487eeb1ed7c2e1013674fe80ac9f3165) |  |
 | leanMetrics   | [leanEthereum/leanMetrics@3b32b30](https://github.com/leanEthereum/leanMetrics/tree/3b32b300cca5ed7a7a2b3f142273fae9dbc171bf) | |
