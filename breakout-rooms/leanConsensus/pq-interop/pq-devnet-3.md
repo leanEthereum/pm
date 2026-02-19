@@ -31,10 +31,10 @@
         - Every validator now belongs to one of the attestation subnets. `subnet_id` is defined by `validator_id % subnets_count` formula to ease debugging. In future devnets it will be replaced by the random assignment.
         - New gossipsub topic: `attestation_{subnet_id}` for propagating `SignedAttestation`
         - New gossipsub topic: `aggregated_attestation` for propagating `SignedAggregatedAttestation`
-        - Note: attesters still publish and subscribe to the global `attestation` topic for safe target computation
     - **Attester role:**
-        - Attesters propagate their individual attestations to new `attestation_{subnet_id}` gossipsub topic and existing `attestation` topic
-        - Attesters do not need to subscribe to `attestation_{subnet_id}` topic if they are not aggregators, i.e. they only publish into the topic. This is to save some bandwidth by not receiving the same attestation both in the subnet and global attestation topics.
+        - Attesters propagate their individual attestations to `attestation_{subnet_id}` gossipsub topic
+        - Attesters subscribe to `aggregated_attestation` topic to receive aggregated attestations for safe target computation
+        - Attesters do not need to subscribe to `attestation_{subnet_id}` topic if they are not aggregators, i.e. they only publish into the topic
     - **Aggregator role (new):**
         - Aggregators collect individual attestations from `attestation_{subnet_id}` gossipsub topic and aggregates them into aggregated signatures
         - Aggregators propagate their aggregated signatures to `aggregated_attestation` gossipsub topic
@@ -43,14 +43,18 @@
         - Proposer listens to `aggregated_attestation` gossipsub topic
         - Proposer puts aggregated signatures across subnets into a block (basic concatenation, no recursion)
         - Proposer MAY additionally aggregate any attestation that is not yet aggregated (and not equivocating) to a block
+    - **All roles:**
+        - Compute safe target from aggregated attestations received via the `aggregated_attestation` topic, not from individual attestations on a global topic
     - **Slot intervals:**
-        - Intervals
-            | Interval | Proposer | Attester | Aggregator |
-            |----------|----------|----------|------------|
-            | 0 | - Publish a block | - Immediately accept new attestations from the published block |  |
-            | 1 |  | - Create and propagate attestation to the global attestation topic and attestation subnet | - Collect attestations from attestation subnet |
-            | 2 |  | - Compute safe target with 2/3+ majority | - If >X% of attestations from the subnet are collected, compute and propagate an aggregation |
-            | 3 |  | - Accept accumulated attestations (new → known) <br />- Update head based on new attestation weights | - If no aggregation was produced, compute and propagate an aggregation from collected attestations |
+        - Duration: 800ms per interval (800ms x 5 intervals = 4000ms per slot)
+        - Intervals: 5 intervals as follow:
+            | Interval | Objective | Proposer | Attester | Aggregator |
+            |----------|-----------|----------|----------|------------|
+            | 0 | **Build & propagate block** | - Publish a block | - Immediately accept new attestations from the published block |  |
+            | 1 | **Attest** |  | - Create and propagate attestation to attestation subnet | - Collect attestations from attestation subnet |
+            | 2 | **Aggregate attestations** |  |  | - Aggregate collected votes and broadcast to aggregated attestation topic |
+            | 3 | **Update safe target** |  | - Update safe target based on received aggregated attestations |  |
+            | 4 | **Accept attestations** |  | - Accept aggregated attestations (new → known) for use in fork choice by next proposer |  |
         - New attestations are collected throughout all intervals by all roles
     - **Aggregation subnet size:**
         - **Initial:** 1 aggregation subnet with minimum validators, to verify interop
