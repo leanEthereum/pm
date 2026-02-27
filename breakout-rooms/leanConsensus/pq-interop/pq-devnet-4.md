@@ -19,8 +19,8 @@
     - Valid values: `1` to `4`.
     - This field is set only when `is_aggregator: true`.
     - Semantics:
-      - `1`: least proof efficiency, fastest proof construction.
-      - `4`: highest proof efficiency, slowest proof construction / most compute intensive.
+      - `1`: biggest proof size, fastest proof construction.
+      - `4`: smallest proof size, slowest proof construction / most compute intensive.
     - If omitted for aggregators, clients use default as 2.
     - Non-aggregator validators MUST ignore this field.
   - **Recursive aggregation via `leanVm`:**
