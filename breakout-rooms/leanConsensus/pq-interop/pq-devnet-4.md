@@ -13,29 +13,35 @@
   - **Consensus mechanism:** Modified [3SF-mini](https://github.com/ethereum/research/tree/master/3sf-mini)
   - **PQ signature:** [leanSig](https://github.com/leanEthereum/leanSig)
   - **Signature aggregation base:** [leanMultisig](https://github.com/leanEthereum/leanMultisig)
+
 - **Changes**
   - **`validator-config.yaml`:**
     - New optional field: `log_inv_rate` (integer, aggregator-only).
     - Valid values: `1` to `4`.
     - This field is set only when `is_aggregator: true`.
-    - Semantics:
+    - New Config Addition:
       - `1`: biggest proof size, fastest proof construction.
       - `4`: smallest proof size, slowest proof construction / most compute intensive.
     - If omitted for aggregators, clients use default as 2.
     - Non-aggregator validators MUST ignore this field.
+
   - **Recursive aggregation via `leanVm`:**
     - `leanVm` performs recursive aggregation over partial aggregates that correspond to the same message.
     - Aggregates are progressively merged until a single aggregate remains per message.
+
   - **Aggregate coalescing rules:**
     - Multiple aggregates with different `participantValidators` sets for the same message are merged into one aggregate.
     - The final aggregate MUST represent the union of all non-equivocating participant validators included in valid partial aggregates.
+
   - **Block contents:**
     - Proposers include exactly one aggregate per message in block body.
     - Duplicate aggregates for the same message MUST be rejected at block validation time.
+
   - **Networking and mempool behavior:**
     - Nodes MAY receive multiple partial aggregates for the same message over gossip.
     - Aggregators SHOULD coalesce compatible partial aggregates before forwarding and propagate.
     - Conflicting or invalid aggregates are ignored according to existing attestation validity rules.
+
   - **Role behavior updates:**
     - **Aggregator:** Continues collecting attestations/partial aggregates and recursively merges them.
     - **Proposer:** Prioritizes the best available coalesced aggregate per message for inclusion.
