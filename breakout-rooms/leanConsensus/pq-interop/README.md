@@ -10,12 +10,15 @@ By fostering rapid feedback between researchers and developers, the devnet accel
 
 ## PQ Interop Devnet Plans
 
-| devnet #                        | Main objectives   | Status      | Date completed  |
-| ------------------------------- | ----------------- | ----------- | --------------- |
-| [pq-devnet-0](./pq-devnet-0.md) | - Minimal consensus<br /> - No PQ signatures | Completed   | October 6, 2025 |
-| [pq-devnet-1](./pq-devnet-1.md) | - PQ signature signining & verification<br />- Naive aggregation (signature concatenation) | Completed | January 20, 2026 |
-| [pq-devnet-2](./pq-devnet-2.md) | - PQ signature aggregation<br />- No recursive aggregation | In progress | TBD (estimated: Q1 2026) |
-| [pq-devnet-3](./pq-devnet-3.md) | - PQ signature aggregation with aggregation committee | Speccing | TBD (estimated: Q1 2026) |
+| devnet #                        | Main objectives   | Status      | Checklist | Date completed  |
+| ------------------------------- | ----------------- | ----------- | --------- | --------------- |
+| [pq-devnet-0](./pq-devnet-0.md) | - Minimal consensus<br /> - No PQ signatures | Completed   | - | October 6, 2025 |
+| [pq-devnet-1](./pq-devnet-1.md) | - PQ signature signining & verification<br />- Naive aggregation (signature concatenation) | Completed | - | January 20, 2026 |
+| [pq-devnet-2](./pq-devnet-2.md) | - PQ signature aggregation<br />- No recursive aggregation | In progress | [Checklist](./pq-devnet-2-checklist.md) | TBD (estimated: Q1 2026) |
+| [pq-devnet-3](./pq-devnet-3.md) | - PQ signature aggregation with aggregation committee | Speccing | [Checklist](./pq-devnet-3-checklist.md) | TBD (estimated: Q1 2026) |
+| pq-devnet-4 | - Multiple aggregation subnets<br />- Dynamic validator set | Not started | [Checklist](./pq-devnet-4-checklist.md) | TBD |
+
+See also: [Decision Log](./decision-log.md) for cross-devnet deferrals and references | [Readiness Checklists (HackMD)](https://hackmd.io/@bomanaps/rJjEPTjBWx)
 
 ## Breakout Room Meetings
 
