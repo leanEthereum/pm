@@ -30,17 +30,17 @@
         - New ENR metadata field: `is_aggregator`, follows previous explanation
         - Every validator now belongs to one of the attestation subnets. `subnet_id` is defined by `validator_id % subnets_count` formula to ease debugging. In future devnets it will be replaced by the random assignment.
         - New gossipsub topic: `attestation_{subnet_id}` for propagating `SignedAttestation`
-        - New gossipsub topic: `aggregated_attestation` for propagating `SignedAggregatedAttestation`
+        - New gossipsub topic: `aggregation` for propagating `SignedAggregatedAttestation`
     - **Attester role:**
         - Attesters propagate their individual attestations to `attestation_{subnet_id}` gossipsub topic
         - Attesters subscribe to `aggregated_attestation` topic to receive aggregated attestations for safe target computation
         - Attesters do not need to subscribe to `attestation_{subnet_id}` topic if they are not aggregators, i.e. they only publish into the topic
     - **Aggregator role (new):**
         - Aggregators collect individual attestations from `attestation_{subnet_id}` gossipsub topic and aggregates them into aggregated signatures
-        - Aggregators propagate their aggregated signatures to `aggregated_attestation` gossipsub topic
+        - Aggregators propagate their aggregated signatures to `aggregation` gossipsub topic
         - Aggregators do not perform recursive aggregation in this devnet
     - **Proposer role:**
-        - Proposer listens to `aggregated_attestation` gossipsub topic
+        - Proposer listens to `aggregation` gossipsub topic
         - Proposer puts aggregated signatures across subnets into a block (basic concatenation, no recursion)
         - Proposer MAY additionally aggregate any attestation that is not yet aggregated (and not equivocating) to a block
     - **All roles:**
@@ -54,7 +54,7 @@
             | 1 | **Attest** |  | - Create and propagate attestation to attestation subnet | - Collect attestations from attestation subnet |
             | 2 | **Aggregate attestations** |  |  | - Aggregate collected votes and broadcast to aggregated attestation topic |
             | 3 | **Update safe target** |  | - Update safe target based on received aggregated attestations |  |
-            | 4 | **Accept attestations** |  | - Accept aggregated attestations (new → known) for use in fork choice by next proposer |  |
+            | 4 | **Accept attestations** |  | - Accept aggregated attestations (new → known) <br />- Update head based on new attestation weights |  |
         - New attestations are collected throughout all intervals by all roles
     - **Aggregation subnet size:**
         - **Initial:** 1 aggregation subnet with minimum validators, to verify interop
