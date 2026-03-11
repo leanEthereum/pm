@@ -4,7 +4,6 @@
 
 1. Enable recursive PQ signature aggregation using `leanVm`
 2. Coalesce multiple aggregates for the same message into one final aggregate
-3. Ensure blocks contain a single aggregate per message instead of multiple aggregates with different `participantValidators`
 
 ## Key functionalities & targets
 
@@ -15,15 +14,12 @@
   - **Signature aggregation base:** [leanMultisig](https://github.com/leanEthereum/leanMultisig)
 
 - **Changes**
-  - **`validator-config.yaml`:**
-    - New optional field: `log_inv_rate` (integer, aggregator-only).
+  - **`log_inv_rate` (protocol-level config):**
+    - `log_inv_rate` is a protocol-level configuration option, not a per-validator setting.
     - Valid values: `1` to `4`.
-    - This field is set only when `is_aggregator: true`.
-    - New Config Addition:
-      - `1`: biggest proof size, fastest proof construction.
-      - `4`: smallest proof size, slowest proof construction / most compute intensive.
-    - If omitted for aggregators, clients use default as 2.
-    - Non-aggregator validators MUST ignore this field.
+      - `1`: biggest proof size.
+      - `4`: smallest proof size.
+    - All nodes use the protocol-defined value.
 
   - **Recursive aggregation via `leanVm`:**
     - `leanVm` performs recursive aggregation over partial aggregates that correspond to the same message.
@@ -79,7 +75,6 @@
         ip: 10.0.0.0
         quic: 10000
         is_aggregator: true
-      log_inv_rate: 4
     ```
 
 ## Interop toolings
