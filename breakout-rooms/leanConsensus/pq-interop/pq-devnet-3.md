@@ -85,7 +85,7 @@
 
 | Specification | Target | Remarks |
 | ------------- | ------ | ------- |
-| leanSpec      | TBD | - For specification-related changes, see [all pq-devnet-3 spec PRs](https://github.com/leanEthereum/leanSpec/pulls?q=is%3Apr+is%3Amerged+label%3Aspecs+milestone%3Apq-devnet-3) <br />- For all changes including tests and framework, see [all pq-devnet-3 PRs](https://github.com/leanEthereum/leanSpec/pulls?q=is%3Apr+is%3Amerged+label%3Aspecs+milestone%3Apq-devnet-3) |
+| leanSpec      | [leanEthereum/leanSpec@be85318](https://github.com/leanEthereum/leanSpec/tree/be853180d21aa36d6401b8c1541aa6fcaad5008d) | - For specification-related changes, see [all pq-devnet-3 spec PRs](https://github.com/leanEthereum/leanSpec/pulls?q=is%3Apr+is%3Amerged+label%3Aspecs+milestone%3Apq-devnet-3) <br />- For all changes including tests and framework, see [all pq-devnet-3 PRs](https://github.com/leanEthereum/leanSpec/pulls?q=is%3Apr+is%3Amerged+label%3Aspecs+milestone%3Apq-devnet-3) |
 | leanSig       | TBD | |
 | leanMultisig  | TBD | |
 | leanMetrics   | TBD | |
