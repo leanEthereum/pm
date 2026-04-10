@@ -2,8 +2,10 @@
 
 ## Objectives
 
-1. Enable recursive PQ signature aggregation using `leanVm`
-2. Coalesce multiple aggregates for the same message into one final aggregate
+1. Introduce proposer keys for validators (attestation key + proposer key), enabling block signing
+2. Enable recursive aggregation per message using `leanVm`
+3. In-block aggregation by proposers — aggregate all proof payloads for a given `attestation_data` into a single aggregated payload
+4. Enforce a `MAX_ATTESTATION_DATA` limit of 16 unique `attestation_data` per block
 
 ## Key functionalities & targets
 
@@ -57,10 +59,9 @@
 
 | Specification | Target | Remarks |
 | ------------- | ------ | ------- |
-| leanSpec      | TBD | - For specification-related changes, see [all pq-devnet-4 spec PRs](https://github.com/leanEthereum/leanSpec/pulls?q=is%3Apr+is%3Amerged+label%3Aspecs+milestone%3Apq-devnet-4) <br />- For all changes including tests and framework, see [all pq-devnet-4 PRs](https://github.com/leanEthereum/leanSpec/pulls?q=is%3Apr+is%3Amerged+label%3Aspecs+milestone%3Apq-devnet-4) |
-| leanSig       | TBD | |
-| leanMultisig  | TBD | |
-| leanVm        | TBD | |
+| leanSpec      | [`0c9528a`](https://github.com/leanEthereum/leanSpec/commit/0c9528ac6f403f913caf6d9c450879c36d361742) | - For specification-related changes, see [all pq-devnet-4 spec PRs](https://github.com/leanEthereum/leanSpec/pulls?q=is%3Apr+is%3Amerged+label%3Aspecs+milestone%3Apq-devnet-4) <br />- For all changes including tests and framework, see [all pq-devnet-4 PRs](https://github.com/leanEthereum/leanSpec/pulls?q=is%3Apr+is%3Amerged+label%3Aspecs+milestone%3Apq-devnet-4) |
+| leanSig       | [`5cc7e37`](https://github.com/leanEthereum/leanSig/commit/5cc7e37480362f94e86695428a9ceb9a96b66b97) | |
+| leanMultisig  | [`0c9528a`](https://github.com/leanEthereum/leanMultisig/commit/0c9528ac6f403f913caf6d9c450879c36d361742) | |
 | leanMetrics   | TBD | |
 
 ## Configurations
@@ -70,7 +71,8 @@
 
     ```yaml
     - name: node_0
-      privkey: 0000000000000000010000000000000002000000000000000300000000000000
+      attestation_privkey: 0000000000000000010000000000000002000000000000000300000000000000
+      proposer_privkey: 0000000000000000040000000000000005000000000000000600000000000000
       enrFields:
         ip: 10.0.0.0
         quic: 10000
@@ -102,4 +104,8 @@
 
 ## Summary and learnings
 
-- To be added once devnet is complete
+- **Proposer keys:** Each validator now maintains two distinct keys (attestation key and proposer key), enabling block signing.
+- **Recursive aggregation per message:** Proofs for a single `attestation_data` can be recursively aggregated, producing a single aggregated payload per `attestation_data`.
+- **In-block aggregation by proposers:** During block construction, proposers aggregate all proof payloads for a given `attestation_data` and produce a single aggregated payload. A constant `MAX_ATTESTATION_DATA` limits the number of unique `attestation_data` included in a block to 8.
+- **Reduced block size and bandwidth:** With one aggregated payload per `attestation_data` instead of multiple proofs, the number of payloads per block and overall block size are reduced, decreasing network bandwidth usage and improving block propagation efficiency.
+- **Remaining limitation:** A block still contains multiple aggregated payloads (one per `attestation_data`), and proofs remain the largest component of the block. This motivates further compression via block-level proof aggregation (multi-message aggregation) in devnet-5.
