@@ -3,7 +3,7 @@
 ## Objectives
 
 1. Introduce proposer keys for validators (attestation key + proposer key), enabling block signing
-2. Enable recursive aggregation per message using `leanVm`
+2. Enable recursive aggregation per message using `leanMultisig`
 3. In-block aggregation by proposers — aggregate all proof payloads for a given `attestation_data` into a single aggregated payload
 4. Enforce a `MAX_ATTESTATION_DATA` limit of 16 unique `attestation_data` per block
 
@@ -17,6 +17,7 @@
 
 - **Changes**
   - **`log_inv_rate` (protocol-level config):**
+    - `log_inv_rate` is the log of the inverse Reed-Solomon code rate used by the FRI-based proof system in `leanMultisig`. It controls the blowup factor of the evaluation domain, trading off proof size against prover time: higher values yield smaller proofs but more expensive proving.
     - `log_inv_rate` is a protocol-level configuration option, not a per-validator setting.
     - Valid values: `1` to `4`.
       - `1`: biggest proof size.
@@ -53,7 +54,7 @@
 
 ## Completion target
 
-2026-03-25 (TBC)
+2026-04-30 (TBC)
 
 ## Specification targets
 
