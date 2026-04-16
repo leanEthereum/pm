@@ -1,12 +1,12 @@
 # PQ Interop
 
 ## Overview
+
 The PQ Interop PM doc serves as a high-level table of contents for key documents related to the development of Post-Quantum (PQ) devnet, an iterative testing environment aimed at validating hash-based PQ signatures within Ethereum's lean consensus framework while adhering to EIP-7870 resource constraints.
 
 This collaborative effort between client teams, cryptographers, and various other researchers focuses on proving signature viability, achieving multi-client interoperability, and establishing performance baselines for block propagation and attestation correctness.
 
 By fostering rapid feedback between researchers and developers, the devnet accelerates PQ adoption against quantum threats, with initial launches targeting basic features before scaling to aggregation and advanced consensus mechanisms.
-
 
 ## PQ Interop Devnet Plans
 
@@ -14,8 +14,9 @@ By fostering rapid feedback between researchers and developers, the devnet accel
 | ------------------------------- | ----------------- | ----------- | --------------- |
 | [pq-devnet-0](./pq-devnet-0.md) | - Minimal consensus<br /> - No PQ signatures | Completed   | October 6, 2025 |
 | [pq-devnet-1](./pq-devnet-1.md) | - PQ signature signining & verification<br />- Naive aggregation (signature concatenation) | Completed | January 20, 2026 |
-| [pq-devnet-2](./pq-devnet-2.md) | - PQ signature aggregation<br />- No recursive aggregation | In progress | TBD (estimated: Q1 2026) |
-| [pq-devnet-3](./pq-devnet-3.md) | - PQ signature aggregation with aggregation committee | Speccing | TBD (estimated: Q1 2026) |
+| [pq-devnet-2](./pq-devnet-2.md) | - PQ signature aggregation<br />- No recursive aggregation | Completed | February 27, 2026 |
+| [pq-devnet-3](./pq-devnet-3.md) | - PQ signature aggregation with aggregation committee | Completed | March 26, 2026 |
+| [pq-devnet-4](./pq-devnet-4.md) | - Proposer keys<br />- Recursive aggregation per message<br />- In-block aggregation by proposers | Speccing | TBD (estimated: Q2 2026) |
 
 ## Breakout Room Meetings
 
