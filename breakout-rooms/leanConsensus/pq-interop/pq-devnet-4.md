@@ -62,7 +62,7 @@
 | ------------- | ------ | ------- |
 | leanSpec      | [`0c9528a`](https://github.com/leanEthereum/leanSpec/commit/0c9528ac6f403f913caf6d9c450879c36d361742) | - For specification-related changes, see [all pq-devnet-4 spec PRs](https://github.com/leanEthereum/leanSpec/pulls?q=is%3Apr+is%3Amerged+label%3Aspecs+milestone%3Apq-devnet-4) <br />- For all changes including tests and framework, see [all pq-devnet-4 PRs](https://github.com/leanEthereum/leanSpec/pulls?q=is%3Apr+is%3Amerged+label%3Aspecs+milestone%3Apq-devnet-4) |
 | leanSig       | [`5cc7e37`](https://github.com/leanEthereum/leanSig/commit/5cc7e37480362f94e86695428a9ceb9a96b66b97) | |
-| leanMultisig  | [`2eb4b9d`](https://github.com/leanEthereum/leanMultisig/commit/2eb4b9d983171139af36749f127dd9890c9109e6) | |
+| leanMultisig  | [`6a0a8b0`](https://github.com/leanEthereum/leanMultisig/commit/6a0a8b03aa9c467af91b9e5443e283ef45158373) | |
 | leanMetrics   | TBD | |
 
 ## Configurations
