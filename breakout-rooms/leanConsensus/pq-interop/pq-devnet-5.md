@@ -2,9 +2,9 @@
 
 ## Objectives
 
-1. Produce one block-level aggregation proof that can cover multiple attestation messages
-2. Leverage proof decomposability so per-message proofs remain recoverable from the block-level proof
-3. Replace 3SF-mini with PQ heartbeat: committee-based voting under Goldfish fork-choice
+1. Validate single block-level aggregation proof — exactly one proof per block subsumes all per-message `attestation_data` aggregates, replacing the per-message-aggregate model from pq-devnet-4
+2. Validate proof decomposability — per-message proofs remain recoverable from the block-level proof without re-aggregation and without an explicit proof tree
+3. Validate PQ heartbeat under Goldfish fork-choice as a constant-latency, reorg-resilient head-selection mechanism — replacing 3SF-mini and operating without an on-chain finality gadget
 
 ## Key functionalities & targets
 
