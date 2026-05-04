@@ -14,28 +14,28 @@
   - **Slot interval:** 5 intervals of 800ms each
   - **PQ signature:** [leanSig](https://github.com/leanEthereum/leanSig)
   - **Signature aggregation base:** [leanMultisig](https://github.com/leanEthereum/leanMultisig)
-  - **Per-message aggregation:** Recursive aggregation per `attestation_data` via `leanVm`
+  - **Per-message aggregation:** Recursive aggregation per `attestation_data` via `leanMultisig`
   - **Validator keys:** Each validator maintains separate attestation and proposer keys
 
 - **Changes**
   - **Finality:**
     - 3SF-mini mechanism is removed entirely.
+    - Finality gadget integration is deferred to a future devnet.
 
   - **PQ heartbeat & fork choice:**
     - Head selection follows [Goldfish](https://ethresear.ch/t/unblocking-faster-finality-with-decoupled-consensus/24527#p-59290-goldfish-1), an LMD-GHOST variant with vote expiry and view-merge.
     - For each slot, an `X`-validator committee is sampled. Sampling method is a protocol-level configuration option.
       - TBD: random sampling, or fixed per-client allotment (each client gets a configured number of committee seats).
-    - The slot's proposer (drawn from the committee) builds a block.
-    - The committee votes on the proposed block. Goldfish's fork-choice picks the canonical head.
-    - Block propagates; the next slot starts. The result is a constant-latency confirmation that is reorg-resilient under honest proposals.
+    - The slot's proposer (drawn from the committee) builds and publishes a block.
+    - Each attester collects committee votes from the latest block's aggregation proof and from a dedicated committee-attestation gossip topic, applies Goldfish (vote expiry + view-merge) to pick the canonical head, and publishes its own vote.
 
   - **Interim finality voting:**
-    - The full validator set casts finality votes targeting the latest heartbeat tip; votes propagate and aggregate through the same `leanMultisig`/`leanVm` pipeline used for committee attestations.
+    - The full validator set publishes finality votes targeting the latest heartbeat tip; votes propagate and aggregate through the same `leanMultisig` pipeline used for committee attestations.
     - Votes are not consumed by any gadget — they do not finalize blocks or influence fork-choice. Purpose is to stress-test PQ signature aggregation at full-validator-set scale.
 
   - **Multi-message aggregation:**
     - Proposers include exactly one aggregation proof per block, covering all `attestation_data` messages in that block.
-    - Aggregation is performed via `leanVm`'s multi-message aggregation: a single `Proof([message_0, slot_0], …, [message_n, slot_n])` is produced from the per-message aggregates.
+    - Aggregation is performed via `leanMultisig`'s multi-message aggregation: a single `Proof([message_0, slot_0], …, [message_n, slot_n])` is produced from the per-message aggregates.
 
   - **Proof recomposition:**
     - The multi-message aggregation proof is decomposable. An aggregator may recover an individual `Proof([message_i, slot_i])` from a multi-message proof in a block to aggregate more signatures for a specific message.
