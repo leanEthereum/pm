@@ -11,16 +11,16 @@
 
 - **Existing**
   - **Slot duration:** 4 seconds
+  - **Slot interval:** 5 intervals of 800ms each
   - **PQ signature:** [leanSig](https://github.com/leanEthereum/leanSig)
   - **Signature aggregation base:** [leanMultisig](https://github.com/leanEthereum/leanMultisig)
-  - **Per-message aggregation:** Recursive aggregation per `attestation_data` via `leanVm` (from pq-devnet-4)
-  - **Proposer keys:** Each validator maintains attestation and proposer keys (from pq-devnet-4)
+  - **Per-message aggregation:** Recursive aggregation per `attestation_data` via `leanVm`
+  - **Validator keys:** Each validator maintains attestation and proposer keys
 
 - **Changes**
   - **Consensus mechanism:**
-    - 3SF-mini is removed from the devnet.
-    - Head selection follows [Goldfish](https://ethresear.ch/t/unblocking-faster-finality-with-decoupled-consensus/24527), an LMD-GHOST variant with vote expiry and view-merge that operates as a fork-choice / availability protocol over committee votes. Goldfish does not finalize on its own; it picks the canonical head and is intended to be paired with a finality gadget.
-    - 3SF-mini is not replaced by a finality gadget in this devnet — finality gadget integration (e.g. Minnimit, Simplex) is deferred to a future devnet once Goldfish ↔ finality-gadget interactions are better understood.
+    - 3SF-mini mechanism is removed entirely. Finality gadget integration (e.g. Minnimit, Simplex) is deferred to a future devnet.
+    - Head selection follows [Goldfish](https://ethresear.ch/t/unblocking-faster-finality-with-decoupled-consensus/24527), an LMD-GHOST variant with vote expiry and view-merge.
 
   - **PQ heartbeat (committee-based block production):**
     - For each slot, an `X`-validator committee is sampled. Sampling method is a protocol-level configuration option.
