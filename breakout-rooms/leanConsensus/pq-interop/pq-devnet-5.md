@@ -27,7 +27,10 @@
     - For each slot, an `X`-validator committee is sampled. Sampling method is a protocol-level configuration option.
       - TBD: random sampling, or fixed per-client allotment (each client gets a configured number of committee seats).
     - The slot's proposer (drawn from the committee) builds and publishes a block.
-    - Each attester collects committee votes from the latest block's aggregation proof and from a dedicated committee-attestation gossip topic, applies Goldfish (vote expiry + view-merge) to pick the canonical head, and publishes its own vote.
+    - Each attester collects committee votes from the latest block's aggregation proof, from the `aggregation` gossipsub topic, and from its own `attestation_{subnet_id}` topic, applies Goldfish (vote expiry + view-merge) to pick the canonical head, and publishes its own vote.
+
+  - **Gossipsub topics:**
+    - Attesters now subscribe to (a) the `aggregation` topic and (b) their own `attestation_{subnet_id}` topic to feed Goldfish (in pq-devnet-3 attesters only published, never subscribed). No new topics are introduced.
 
   - **Interim finality voting:**
     - The full validator set publishes finality votes targeting the latest heartbeat tip; votes propagate and aggregate through the same `leanMultisig` pipeline used for committee attestations.
