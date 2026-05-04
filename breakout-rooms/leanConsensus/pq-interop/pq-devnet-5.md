@@ -15,7 +15,7 @@
   - **PQ signature:** [leanSig](https://github.com/leanEthereum/leanSig)
   - **Signature aggregation base:** [leanMultisig](https://github.com/leanEthereum/leanMultisig)
   - **Per-message aggregation:** Recursive aggregation per `attestation_data` via `leanVm`
-  - **Validator keys:** Each validator maintains attestation and proposer keys
+  - **Validator keys:** Each validator maintains separate attestation and proposer keys
 
 - **Changes**
   - **Finality:**
@@ -24,12 +24,12 @@
   - **PQ heartbeat & fork choice:**
     - Head selection follows [Goldfish](https://ethresear.ch/t/unblocking-faster-finality-with-decoupled-consensus/24527#p-59290-goldfish-1), an LMD-GHOST variant with vote expiry and view-merge.
     - For each slot, an `X`-validator committee is sampled. Sampling method is a protocol-level configuration option.
-      - Valid options: TBD
+      - TBD: random sampling, or fixed per-client allotment (each client gets a configured number of committee seats).
     - The slot's proposer (drawn from the committee) builds a block.
     - The committee votes on the proposed block. Goldfish's fork-choice picks the canonical head.
     - Block propagates; the next slot starts. The result is a constant-latency confirmation that is reorg-resilient under honest proposals.
 
-  - **Parallel finality-vote test bed:**
+  - **Interim finality voting:**
     - The full validator set casts finality votes targeting the latest heartbeat tip; votes propagate and aggregate through the same `leanMultisig`/`leanVm` pipeline used for committee attestations.
     - Votes are not consumed by any gadget — they do not finalize blocks or influence fork-choice. Purpose is to stress-test PQ signature aggregation at full-validator-set scale.
 
@@ -38,7 +38,7 @@
     - Aggregation is performed via `leanVm`'s multi-message aggregation: a single `Proof([message_0, slot_0], …, [message_n, slot_n])` is produced from the per-message aggregates.
 
   - **Proof recomposition:**
-    - The resulting block-level proof is decomposable: any later party MAY recover an individual `Proof([message_i, slot_i])` from the block-level proof, without re-aggregation. No proof tree is required to expose per-message proofs to downstream consumers.
+    - The multi-message aggregation proof is decomposable. An aggregator may recover an individual `Proof([message_i, slot_i])` from a multi-message proof in a block to aggregate more signatures for a specific message.
 
   - **Role behavior updates:**
     - **Aggregator:** Continues per-message coalescing. Forwards per-message aggregates to the proposer for block-level merging.
