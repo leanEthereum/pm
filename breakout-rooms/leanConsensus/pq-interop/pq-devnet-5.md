@@ -13,8 +13,8 @@
   - **Slot duration:** 4 seconds
   - **Slot interval:** 5 intervals of 800ms each
   - **PQ signature:** [leanSig](https://github.com/leanEthereum/leanSig)
-  - **Signature aggregation base:** [leanMultisig](https://github.com/leanEthereum/leanMultisig)
-  - **Per-message aggregation:** Recursive aggregation per `attestation_data` via `leanMultisig`
+  - **Signature aggregation base:** [leanVM](https://github.com/leanEthereum/leanVM)
+  - **Per-message aggregation:** Recursive aggregation per `attestation_data` via `leanVM`
   - **Validator keys:** Each validator maintains separate attestation and proposer keys
 
 - **Changes**
@@ -33,12 +33,12 @@
     - Attesters now subscribe to (a) the `aggregation` topic and (b) their own `attestation_{subnet_id}` topic to feed Goldfish (in pq-devnet-3 attesters only published, never subscribed). No new topics are introduced.
 
   - **Interim finality voting:**
-    - The full validator set publishes finality votes targeting the latest heartbeat tip; votes propagate and aggregate through the same `leanMultisig` pipeline used for committee attestations.
+    - The full validator set publishes finality votes targeting the latest heartbeat tip; votes propagate and aggregate through the same `leanVM` pipeline used for committee attestations.
     - Votes are not consumed by any gadget — they do not finalize blocks or influence fork-choice. Purpose is to stress-test PQ signature aggregation at full-validator-set scale.
 
   - **Multi-message aggregation:**
     - Proposers include exactly one aggregation proof per block, covering all `attestation_data` messages in that block.
-    - Aggregation is performed via `leanMultisig`'s multi-message aggregation: a single `Proof([message_0, slot_0], …, [message_n, slot_n])` is produced from the per-message aggregates.
+    - Aggregation is performed via `leanVM`'s multi-message aggregation: a single `Proof([message_0, slot_0], …, [message_n, slot_n])` is produced from the per-message aggregates.
 
   - **Proof recomposition:**
     - The multi-message aggregation proof is decomposable. An aggregator may recover an individual `Proof([message_i, slot_i])` from a multi-message proof in a block to aggregate more signatures for a specific message.
@@ -63,7 +63,7 @@ TBD
 | ------------- | ------ | ------- |
 | leanSpec      | TBD | - For specification-related changes, see [all pq-devnet-5 spec PRs](https://github.com/leanEthereum/leanSpec/pulls?q=is%3Apr+is%3Amerged+label%3Aspecs+milestone%3Apq-devnet-5) <br />- For all changes including tests and framework, see [all pq-devnet-5 PRs](https://github.com/leanEthereum/leanSpec/pulls?q=is%3Apr+is%3Amerged+milestone%3Apq-devnet-5) |
 | leanSig       | TBD | |
-| leanMultisig  | TBD | |
+| leanVM        | TBD | |
 | leanMetrics   | TBD | |
 
 ## Benchmarks
