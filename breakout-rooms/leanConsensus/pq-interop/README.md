@@ -16,7 +16,9 @@ By fostering rapid feedback between researchers and developers, the devnet accel
 | [pq-devnet-1](./pq-devnet-1.md) | - PQ signature signining & verification<br />- Naive aggregation (signature concatenation) | Completed | January 20, 2026 |
 | [pq-devnet-2](./pq-devnet-2.md) | - PQ signature aggregation<br />- No recursive aggregation | Completed | February 27, 2026 |
 | [pq-devnet-3](./pq-devnet-3.md) | - PQ signature aggregation with aggregation committee | Completed | March 26, 2026 |
-| [pq-devnet-4](./pq-devnet-4.md) | - Proposer keys<br />- Recursive aggregation per message<br />- In-block aggregation by proposers | Speccing | TBD (estimated: Q2 2026) |
+| [pq-devnet-4](./pq-devnet-4.md) | - Proposer keys<br />- Recursive aggregation per message<br />- In-block aggregation by proposers | Completed | June 2026 |
+| [pq-devnet-5](./pq-devnet-5.md) | - Full block aggregation | Speccing | TBD (estimated: Q2 2026) |
+
 
 ## Breakout Room Meetings
 
